@@ -31,7 +31,6 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-files/saipham
 
 /uploads
-src/configs/db/gis.db.config.ts
+src/configs/db/db.config.ts
