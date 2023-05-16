@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "author": "",
+  "engines": {
+    "node": "14.15.0"
+  },
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist/*",
@@ -64,7 +67,6 @@
     "mssql": "^6.2.0",
     "multer": "^1.4.2",
     "nest-router": "^1.0.9",
-    "nestjs-gis": "^3.9.42",
     "node-fetch": "^2.6.1",
     "nodegit": "^0.27.0",
     "nodemailer": "^6.9.1",
@@ -82,9 +84,8 @@
     "slug": "^5.1.0",
     "string_decoder": "^1.3.0",
     "swagger-ui-express": "^4.1.4",
-    "terraformer-arcgis-parser": "^1.1.0",
     "terraformer-wkt-parser": "^1.2.1",
-    "tyatech-nestjs-system": "0.0.4",
+    "tyatech-nestjs-system": "2.0.0",
     "typeorm": "0.2.34",
     "xml-js": "^1.6.11",
     "xml2js": "^0.4.23"
