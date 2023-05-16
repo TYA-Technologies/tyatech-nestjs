@@ -7,8 +7,8 @@ export const DbConfig: TypeOrmModuleOptions = {
   host: 'localhost',
   port: 1433,
   username: 'sa',
-  password: '27101998',
-  database: 'TYATECH_V2',
+  password: '',
+  database: '',
   synchronize: false,
   logging: false,
   entities: [
