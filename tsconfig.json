@@ -20,6 +20,8 @@
       ],
       "@utils":["src/utils"],
       "@utils/*":["src/utils/*"],
+      "@gis-xay-dung/*":["src/gis-xay-dung/*"],
+      "@quan-ly-tep/*":["src/quan-ly-tep/*"],
     },
     "typeRoots": [
       "./typings"

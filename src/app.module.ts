@@ -13,19 +13,21 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { DbConfig } from "./configs/db/db.config";
 moment.locale("vi-VN");
+import { AutoCallHostingModule } from "./auto-call-hosting/auto-call-hosting.module";
 import { AuthMiddleware } from "./auth-middleware";
 import { JwtModule } from "@nestjs/jwt";
-import { PassportModule } from "@nestjs/passport";
-
 import { SystemManagerConstants, SystemManagerModule } from "tyatech-nestjs-system";
 
 @Module({
   imports: [
     SystemManagerModule,
+    AutoCallHostingModule,
     HttpModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, "..", "static"),
+    }),
     TypeOrmModule.forRoot(DbConfig),
-    ScheduleModule.forRoot(),
-    PassportModule,
+    ScheduleModule.forRoot(),    
     JwtModule.register({
       secret: SystemManagerConstants.secret,
       signOptions: { expiresIn: '7d' },

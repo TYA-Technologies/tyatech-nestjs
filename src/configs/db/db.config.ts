@@ -4,7 +4,7 @@ import { systemEntities } from "tyatech-nestjs-system";
 export const DbConfig: TypeOrmModuleOptions = {
   options: { encrypt: false },
   type: 'mssql',
-  host: 'localhost',
+  host: '',
   port: 1433,
   username: 'sa',
   password: '',
@@ -12,7 +12,8 @@ export const DbConfig: TypeOrmModuleOptions = {
   synchronize: false,
   logging: false,
   entities: [
-    'dist/**/*.entity{.ts,.js}',
+    'dist/**/*.entity{.ts,.js}', 
+    __dirname + '/../../mail/**/*.entity{.ts,.js}',
     ...systemEntities
   ],
   subscribers: ['dist/**/*.subscriber{.ts,.js}'],
