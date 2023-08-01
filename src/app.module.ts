@@ -3,34 +3,46 @@ import {
   MiddlewareConsumer,
   Module,
   RequestMethod,
+  forwardRef,
 } from "@nestjs/common";
 import { ScheduleModule } from "@nestjs/schedule";
-import { ServeStaticModule } from "@nestjs/serve-static";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import * as moment from "moment/moment";
-import { join } from "path";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { DbConfig } from "./configs/db/db.config";
 moment.locale("vi-VN");
-import { AutoCallHostingModule } from "./auto-call-hosting/auto-call-hosting.module";
-import { AuthMiddleware } from "./auth-middleware";
 import { JwtModule } from "@nestjs/jwt";
-import { SystemManagerConstants, SystemManagerModule } from "tyatech-nestjs-system";
+import { PassportModule } from "@nestjs/passport";
+import { SystemManagerConstants, SystemManagerModule, AuthMiddleware } from "tyatech-nestjs-system";
 
 @Module({
   imports: [
-    SystemManagerModule,
-    AutoCallHostingModule,
-    HttpModule,
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, "..", "static"),
+	SystemManagerModule.register({
+	  secret: "",
+	  lang: "VI",
+	  mailer: {
+		transport: { //Update smtp server information of other mail servers if not using gmail
+		  host: "smtp.gmail.com", 
+		  port: 465,
+		  secure: true,
+		  auth: {
+			user: "",
+			pass: "",
+		  },
+		},
+		defaults: {
+		  from: '"No Reply" <noreply@example.com>',
+		},
+	  },
     }),
+    HttpModule,
     TypeOrmModule.forRoot(DbConfig),
-    ScheduleModule.forRoot(),    
+    ScheduleModule.forRoot(),
+    PassportModule,
     JwtModule.register({
       secret: SystemManagerConstants.secret,
-      signOptions: { expiresIn: '7d' },
+      signOptions: { expiresIn: "7d" },
     }),
   ],
   controllers: [AppController],
