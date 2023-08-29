@@ -3,7 +3,6 @@ import {
   MiddlewareConsumer,
   Module,
   RequestMethod,
-  forwardRef,
 } from "@nestjs/common";
 import { ScheduleModule } from "@nestjs/schedule";
 import { TypeOrmModule } from "@nestjs/typeorm";
@@ -14,27 +13,31 @@ import { DbConfig } from "./configs/db/db.config";
 moment.locale("vi-VN");
 import { JwtModule } from "@nestjs/jwt";
 import { PassportModule } from "@nestjs/passport";
-import { SystemManagerConstants, SystemManagerModule, AuthMiddleware } from "tyatech-nestjs-system";
+import {
+  SystemManagerConstants,
+  SystemManagerModule,
+  AuthMiddleware,
+} from "tyatech-nestjs-system";
 
 @Module({
   imports: [
-	SystemManagerModule.register({
-	  secret: "",
-	  lang: "VI",
-	  mailer: {
-		transport: { //Update smtp server information of other mail servers if not using gmail
-		  host: "smtp.gmail.com", 
-		  port: 465,
-		  secure: true,
-		  auth: {
-			user: "",
-			pass: "",
-		  },
-		},
-		defaults: {
-		  from: '"No Reply" <noreply@example.com>',
-		},
-	  },
+    SystemManagerModule.register({
+      secret: "",
+      lang: "VI",
+      mailer: {
+        transport: {
+          host: "smtp.gmail.com",
+          port: 465,
+          secure: true,
+          auth: {
+            user: "",
+            pass: "",
+          },
+        },
+        defaults: {
+          from: '"No Reply" <noreply@example.com>',
+        },
+      },
     }),
     HttpModule,
     TypeOrmModule.forRoot(DbConfig),

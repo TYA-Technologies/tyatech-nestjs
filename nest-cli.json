@@ -2,7 +2,9 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "compilerOptions": {
-    "assets": ["mail/templates/**/*"],
+    "assets": [
+      "./node_modules/tyatech-nestjs-system/dist/system-manager/helper/controller/mail-forgot-password/templates/**/*"
+    ],
     "watchAssets": true
   }
 }

@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class AppService {
   getHello(): {} {
-    return "<h1>TYA TECH - Web API</h1>";
+    return "<h1>Web API - Technology solution provided by Tya Technologies</h1>";
   }
 }

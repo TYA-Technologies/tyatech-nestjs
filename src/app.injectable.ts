@@ -13,7 +13,8 @@ export class AuthGuard implements CanActivate {
       "skipAuth",
       context.getHandler()
     );
-    if (skipAuth) { //check xem có phải api bỏ qua xác thực thông qua @SkipAuthGuard()
+    if (skipAuth) {
+      //check xem có phải api bỏ qua xác thực thông qua @SkipAuthGuard()
       return true;
     } else {
       const request = context.switchToHttp().getRequest();
