@@ -1,6 +1,6 @@
 {
   "name": "tyatech-nestjs-system",
-  "version": "3.0.3",
+  "version": "3.1.1",
   "description": "",
   "author": "",
   "engines": {
@@ -94,7 +94,7 @@
     "swagger-ui-express": "^4.1.4",
     "terraformer-arcgis-parser": "^1.1.0",
     "terraformer-wkt-parser": "^1.2.1",
-    "tyatech-nestjs-system": "3.0.3",
+    "tyatech-nestjs-system": "3.1.1",
     "typeorm": "0.2.34",
     "xml-js": "^1.6.11",
     "xml2js": "^0.4.23"

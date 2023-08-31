@@ -23,6 +23,7 @@ import {
   imports: [
     SystemManagerModule.register({
       secret: "",
+      usageCode: "",
       lang: "VI",
       mailer: {
         transport: {
